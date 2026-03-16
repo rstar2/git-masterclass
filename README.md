@@ -1,7 +1,9 @@
 # 🚀 Git & GitHub Masterclass
 
-📂 All course files for the Git &amp; GitHub Masterclass on NetNinja.dev.
+## Undoing Changes
 
-## Starter Projects
+- Revert
+  > Undoes a previous commit by making a new commit on top of the history
 
-- For the first starter project, select the starter-project-1 branch from the dropdown.
+- Reset
+  > Moves the head to a previous commit, e.g. "rewinds"
