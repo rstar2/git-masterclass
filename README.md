@@ -41,4 +41,5 @@
   > When there are not commits in the "main" branch (the branch where the merge happens). Result is a clean and linear Git history. It happens automatically if that is the case
 - Three-Way (True) Merge (Merge commit) - Occurs when both branches have new commits since they diverged. Git creates a `merge commit` combining both histories:
 - Squash merge - some people may prefer it. Squashes all commits from the "feature" branch and adds them as one in "main" - `git merge --squash feature`. Mainly for PR workflows.
+This merge also don't commit the "squashed" feature changes, just stages one changes as one, but `git commit -m "...."` has to be explicitly run in order the commit to be applyed to "main"
 
