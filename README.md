@@ -20,6 +20,11 @@
 - `git restore --staged [file]`
   > Unstages the staged file and keeps the changes in the working tree
 
+- `git restore --staged --worktree [file]`
+  > Will unstage and discard changes in the working directory
+
+- Historically before Git 2.23 `git checkout [file]` could be used for same thing, but the `checkout` command was used for many different things, so now the `restore` is much more clear and explicit
+
 ### After they have been committed
 
 - Revert - `git revert [hash-commit]`
@@ -27,3 +32,13 @@
 
 - Reset - `git reset [hash-commit]`
   > Moves the head to a previous commit, e.g. "rewinds", this will discard/remove all next commits after this one
+
+## Merging branches
+
+`git merge feature`
+
+- Fast-forward Merge
+  > When there are not commits in the "main" branch (the branch where the merge happens). Result is a clean and linear Git history. It happens automatically if that is the case
+- Three-Way (True) Merge (Merge commit) - Occurs when both branches have new commits since they diverged. Git creates a `merge commit` combining both histories:
+- Squash merge - some people may prefer it. Squashes all commits from the "feature" branch and adds them as one in "main" - `git merge --squash feature`. Mainly for PR workflows.
+
