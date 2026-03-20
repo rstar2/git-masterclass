@@ -57,3 +57,7 @@ This merge also don't commit the "squashed" feature changes, just stages one cha
 
 - `git commit --amend` - This will amend the latest commit with the new changes
 - `git commit -a -m "message"` or just `git commit -am "message"` - shortcut for `git add .` plus `git commit -m "message"`
+
+## Remotes
+
+...
