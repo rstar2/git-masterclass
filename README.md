@@ -58,7 +58,26 @@ This merge also don't commit the "squashed" feature changes, just stages one cha
 - `git commit --amend` - This will amend the latest commit with the new changes
 - `git commit -a -m "message"` or just `git commit -am "message"` - shortcut for `git add .` plus `git commit -m "message"`
 
+
 ## Remotes
 
 ...
 ...
+
+## Pull request workflow (in GitHib)
+
+- Start working on a feature/bugfix/etc..., so create a new local branch `git switch -c bugfix/one`
+- Do what is needed - do commits.
+- Push to remote - First time use `git push -u origin bugfix/one` that will create a remote branch `origin/bugfix/one` (on the origin url, normally in github) , push local commits into it and setup upstream
+- Push more from the same local branch if needed with just `git push`.
+- When ready go to GitHub and create a PR (pull request) to merge this remote branch `origin/bugfix/one` into `origin/main`
+- NOTE: IT'S GOOD PRACTICE THE OWNER OF THE REPO TO HAVE SET SOME PROTECTION RULES FOR `origin/main` TO ALLOW MERGES ONLY THROUGH `PRs` AND THEY TO HAVE BEEN APPROVED AT LEAST FROM 1 PEARSON
+- Finally let the remote be merged.
+- Normally after merging the remote branch `origin/bugfix/one` will be deleted as it's not needed any more.
+- The locally
+  - Pull the changes into the local `main` - (`git switch main` and `git pull`, assuming it's upstream is already `origin/main`)
+  - Delete local branch `bugfix/one` and prune the remotes (actully first is pruning and then deleting local branch)
+    - `git fetch --prune` or more explicitly `git remote prune origin`
+    - `git branch -d bugfix/one`
+
+Note: `git branch -vv` which list local branches and their upstreams if it outputs something like **[origin/feature-xyz: gone** then that’s your signal to prune + delete.
