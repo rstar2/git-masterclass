@@ -81,3 +81,12 @@ This merge also don't commit the "squashed" feature changes, just stages one cha
     - `git branch -d bugfix/one`
 
 Note: `git branch -vv` which list local branches and their upstreams if it outputs something like **[origin/feature-xyz: gone** then that’s your signal to prune + delete.
+
+## Worktrees
+
+- Create a new work tree and a branch for it - `git worktree add -b feature-2 ../[project-name]-feature-2 main` - This will create the worktree in the `../[project-name]-feature-2` folder, the branch name will be `feature-2` an will start/checkout from the `main` branch (if start branch is no specified then will use the current branch we are on)
+- Note: We have to explicitly go into the worktree folder if needed to start working on this `feature-2` branch immediately. - `cd ../[project-name]-feature-2`. Even just trying `git switch feature-2` will fails.
+- To list all worktrees - `git worktree list`
+- To delete one - `git worktree remove ../[project-name]-feature-2`.
+- Note: If the worktree has uncommitted changes that the "--force"/"-f" flag can be used.
+- Note: The branch has to be explicitly deleted also with `git branch -d feature-2`
